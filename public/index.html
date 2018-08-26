@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FICHA DE CLIENTE</title>
+    
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilos1.css">
+    <link rel="stylesheet" href="css/font-awesome.css"> 
+   
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+
+</head>
+<body>
+<section class="form_wrap">
+
+        <section class="cantact_info">
+            <section class="info_title" style="margin-top: 40px;">
+            <!--<img src="logo.png" id="logo">-->
+                <span class="fa fa-user-circle"></span>
+                <h2>FICHA<br>DE CLIENTE</h2>
+            </section>
+            <section class="info_items">
+                       
+            </section>
+            <section class="info_title">
+                               
+            </section>           
+            <section class="info_items">
+              <button  title="Agregar Nuevo Cliente" type="button" class="btn btn-success " 
+              data-toggle="modal" data-target="#addModal" style="margin-bottom: 20px;"> Nuevo Cliente <i class="fa fa-plus"></i></button>
+
+             
+
+              <br>
+            </section>
+        </section>
+        
+        <form  class="form_contact">
+
+          <div class="mo"> 
+          </div>
+
+        <div class="contedor_input">
+
+                <!--<input id="fc1" type="text" class="form-control "  name="periodo" placeholder="Ingresar Periodo (Ejem: 201807)"> onBlur="formato_rut(this)"-->
+            <input type="text" id="rut" name="rut" required   class="form-control" placeholder="Ingresar Rut Cliente" style="padding-left: 10px; width: 50%; float: left;" autocomplete="off">
+
+           <button type="button" class="btn btn-success"  id="btn_buscar_rut" >Consultar Datos del Cliente <i class="fa fa-search"></i></button>
+          
+        </div>
+<br>
+<!--TABLAS-->  
+
+  <div class="contenedor" id="resultados"> 
+
+<!--FACTORIGN-->
+<h4 style="float: left; color: #0070b9;">FACTORING (MM $)</h4>
+<!--<a data-toggle="modal" data-target="#myModal4" style="cursor: pointer; float: right;">Ver detalle Operaciones</a>-->
+
+
+<div style="clear: both"></div>
+<div class="table-responsive ">
+<table class="table table-bordered">
+  <tr style="color: #fff ;background-color:#0070b9;">
+    <td>Rut</td>
+    <td>Nombre Cliente</td>
+    <td >Nro. Oper</td>
+    <td>Saldo Financiado</td>
+    <td>Tasa Ope</td>
+  </tr>
+  <tr>
+        <td><span id="rt"></span></td>
+        <td><span id="nc"></span></td>
+        <td><span id="nop"></span></td>
+        <td><span id="sf"></span></td>
+        <td><span id="to"></span></td>
+  </tr>
+ <tr style="color: #fff ;background-color:#0070b9;">
+    <td>Cod Ejecutivo</td>
+    <td colspan="2">Nombre Ejecutivo</td>
+    <td colspan="2">Sucursal</td>
+   
+  </tr>
+  <tr>
+        <td><span id="ce"></span></td> 
+        <td colspan="2"><span id="ne"></span></td>
+        <td colspan="2"><span id="sc"></span></td>
+  </tr>
+
+  
+</table>
+  <br>
+  <div style="float: right;">
+    <span id="eliminar"></span>
+    <span id="actulizar"></span>
+  </div>
+</div>
+
+            
+</section>
+
+</form>
+
+
+<!--MODAL Factoring estado-->
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <center><h4 class="modal-title" id="myModalLabel">Registro de Nuevo Cliente</h4></center>
+      </div>
+      <div class="modal-body">
+      <form id="form_nuevo_cliente"  autocomplete="off"> 
+
+        <input class="form-control" placeholder="Rut Cliente" type="text" 
+        id="input_rt1"  ><br>
+        <input class="form-control" placeholder="Nombre Cliente" type="text"  
+        id="input_nc1"  ><br>
+        <input class="form-control" placeholder="N. operacion" type="text" 
+        id="input_nop1"  ><br> 
+        <input class="form-control" placeholder="Saldo Financiado" type="text"  
+        id="input_sf1"  ><br>
+        <input class="form-control" placeholder="Tasa Ope" type="text" 
+         id="input_to1"  ><br> 
+        <input class="form-control" placeholder="Cod Ejecutivo" type="text"  
+        id="input_ce1"  ><br> 
+        <input class="form-control" placeholder="Nombre Ejecutivo" type="text" 
+        id="input_ne1"  ><br>
+        <input class="form-control" placeholder="Sucursal" type="text"  
+        id="input_sc1"  >
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" onclick="form_valid(event)" class="btn btn-primary">Guardar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/script.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
